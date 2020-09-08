@@ -21,17 +21,17 @@ class Product {
 final List<Product> product = [
   Product(
         id: "1",
-        title: 'Nivea Care Shop',
-        img: 'assets/images/shop6.png',
-        newPrice: "74",
-        oldPrice: "89",
+        title: 'Tide Plus Extra Power Jasmi...',
+        img: 'assets/images/tide.png',
+        newPrice: "730",
+        oldPrice: "840",
         discount: "13%",
         quantity: ""
         ),
     Product(
         id: "2",
         title: 'Saluja Kirana Store',
-        img: 'assets/images/shop1.jpeg',
+        img: 'assets/images/pdt3.jpg',
         newPrice: "74",
         oldPrice: "89",
         discount: "13%",
@@ -40,7 +40,7 @@ final List<Product> product = [
     Product(
         id: '3',
         title: 'Chintu Kirana Store',
-        img: 'assets/images/shop2.jpeg',
+        img: 'assets/images/pdt8.jpg',
         newPrice: "74",
         oldPrice: "89",
         discount: "13%",
@@ -48,26 +48,11 @@ final List<Product> product = [
     Product(
         id: '4',
         title: 'Chintu Kirana ',
-        img: 'assets/images/shop4.jpeg',
+        img: 'assets/images/pdt6.jpg',
         newPrice: "74",
         oldPrice: "89",
         discount: "13%",
         quantity: ""),
 ];
 
-// final List<Category> categories = [
-//   Category(
-//       name: "Weekly Top Caregory For You",
-//       image: "assets/images/shop5.jpg",
-//       product:
-//         Product(
-//             id: 1,
-//             title: 'tide',
-//             img: 'assets/images/shop3.jpeg',
-//             newPrice: 730,
-//             oldPrice: 840,
-//             discount: '13%',
-//             quantity: ''),
 
-//       )
-// ];

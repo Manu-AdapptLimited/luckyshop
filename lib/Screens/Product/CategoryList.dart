@@ -1,31 +1,43 @@
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
+  final title;
+  final img;
+  final newPrice;
+  final oldprice;
+  final discount;
+
+  const CategoryList(
+      {Key key,
+      this.title,
+      this.img,
+      this.newPrice,
+      this.oldprice,
+      this.discount})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+ 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 5,
       child: Container(
-        height: 210,
-        width: 240,
+        // height: 210,
+        // width: 260,
         decoration: BoxDecoration(
           // color: Color.fromRGBO(233, 97, 39, 1),
           borderRadius: BorderRadius.circular(10),
-          color: Colors.grey[100],
+          color: Colors.white,
         ),
         child: Stack(
           children: [
             Positioned(
+              top: 10,
               left: 10,
-              
               child: Container(
-                width: 140,
-                child: Image.asset(
-                  'assets/images/tide.png',
-                  height: 120,
-                  fit: BoxFit.contain
-                ),
+                child: Image.asset(img,
+                    width: 100, height: 100, fit: BoxFit.cover),
               ),
             ),
             Positioned(
@@ -34,20 +46,21 @@ class CategoryList extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Rs 730',
+                  Text('\u{20B9}$newPrice',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 20,
                       )),
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 8,
                       bottom: 8,
                     ),
-                    child: Text('Rs 830',
+                    child: Text('\u{20B9}$oldprice',
                         style: TextStyle(
                           decoration: TextDecoration.lineThrough,
-                          fontSize: 15,
+                          fontSize: 16,
+                          color: Colors.black54
                         )),
                   ),
                   Container(
@@ -58,20 +71,20 @@ class CategoryList extends StatelessWidget {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child:
-                        Text('13% OFF', style: TextStyle(color: Colors.white)),
+                    child: Text('${discount}OFF',
+                        style: TextStyle(color: Colors.white)),
                   )
                 ],
               ),
             ),
             Positioned(
-              left: 5,
+              left: 8,
               top: 115,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Tide Plus Extra Power Jasmi...',
+                    title,
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 15,
@@ -89,11 +102,11 @@ class CategoryList extends StatelessWidget {
             ),
             Positioned(
               top: 160,
-              left: 15,
+              left: 10,
               child: Container(
                 alignment: Alignment.center,
                 height: 35,
-                width: 210,
+                width: 190,
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(233, 97, 39, 1),
                     borderRadius: BorderRadius.circular(5)),
@@ -101,7 +114,7 @@ class CategoryList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                        width: 175,
+                        width: 160,
                         child: FlatButton(
                             onPressed: () {},
                             child: Text(
@@ -111,7 +124,7 @@ class CategoryList extends StatelessWidget {
                               ),
                             ))),
                     Container(
-                        width: 35,
+                        width: 30,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(189, 81, 32, 1),

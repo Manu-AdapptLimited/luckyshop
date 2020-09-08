@@ -1,4 +1,7 @@
+import 'package:e_comshop/Screens/Product/CounterBtn.dart';
 import 'package:flutter/material.dart';
+
+import 'AddBtn.dart';
 
 class CategoryList extends StatelessWidget {
   final title;
@@ -6,6 +9,8 @@ class CategoryList extends StatelessWidget {
   final newPrice;
   final oldprice;
   final discount;
+  final quantity;
+   final bool isAdded;
 
   const CategoryList(
       {Key key,
@@ -13,12 +18,14 @@ class CategoryList extends StatelessWidget {
       this.img,
       this.newPrice,
       this.oldprice,
-      this.discount})
+      this.discount,
+      this.quantity,
+      this.isAdded
+      })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
- 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 5,
@@ -58,10 +65,9 @@ class CategoryList extends StatelessWidget {
                     ),
                     child: Text('\u{20B9}$oldprice',
                         style: TextStyle(
-                          decoration: TextDecoration.lineThrough,
-                          fontSize: 16,
-                          color: Colors.black54
-                        )),
+                            decoration: TextDecoration.lineThrough,
+                            fontSize: 16,
+                            color: Colors.black54)),
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -91,7 +97,7 @@ class CategoryList extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '7kg + 3kg',
+                    quantity,
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 15,
@@ -100,51 +106,7 @@ class CategoryList extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              top: 160,
-              left: 10,
-              child: Container(
-                alignment: Alignment.center,
-                height: 35,
-                width: 190,
-                decoration: BoxDecoration(
-                    color: Color.fromRGBO(233, 97, 39, 1),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                        width: 160,
-                        child: FlatButton(
-                            onPressed: () {},
-                            child: Text(
-                              'ADD',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ))),
-                    Container(
-                        width: 30,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(189, 81, 32, 1),
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(5),
-                                bottomRight: Radius.circular(5))),
-                        child: IconButton(
-                            padding: EdgeInsets.only(left: 5),
-                            icon: Icon(
-                              Icons.add,
-                              size: 15,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              print("plus button tapped");
-                            }))
-                  ],
-                ),
-              ),
-            )
+           isAdded==true? CounterBtn():AddBtn(),
           ],
         ),
       ),

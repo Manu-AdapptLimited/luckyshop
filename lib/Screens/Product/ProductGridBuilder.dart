@@ -32,18 +32,47 @@ class ProductGridBuilder extends StatelessWidget {
             child: GridView.builder(
                 physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.all(0),
-                itemCount: itemCount.length,
+                itemCount: itemCount.length + 1,
                 scrollDirection: Axis.horizontal,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (BuildContext context, int index) {
+                  if (index == itemCount.length) {
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 5,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: RichText(
+                            text: TextSpan(children: [
+                          TextSpan(
+                            text: 'See All ',
+                            style: TextStyle(
+                              color: Color.fromRGBO(233, 97, 39, 1),
+                               fontSize: 15,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '>',
+                            style: TextStyle(
+                              color: Color.fromRGBO(233, 97, 39, 1),
+                              fontSize: 17,
+                            ),
+                          )
+                        ])),
+                      ),
+                    );
+                  }
+
                   return CategoryList(
-                  title: itemCount[index].title,
-                  img:itemCount[index].img ,
-                  newPrice: itemCount[index].newPrice,
-                  oldprice: itemCount[index].oldPrice,
-                  discount: itemCount[index].discount
-                  );
+                      title: itemCount[index].title,
+                      img: itemCount[index].img,
+                      newPrice: itemCount[index].newPrice,
+                      oldprice: itemCount[index].oldPrice,
+                      discount: itemCount[index].discount,
+                      quantity: itemCount[index].quantity,
+                      isAdded: itemCount[index].isAdded);
                 }),
           ),
           SizedBox(

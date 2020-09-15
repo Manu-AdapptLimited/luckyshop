@@ -1,13 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'Constant.dart';
+import 'package:e_comshop/custom_color_scheme.dart';
 
-class ShopGridList extends StatelessWidget {
+class ShopGridItem extends StatelessWidget {
   final shopList;
-  const ShopGridList({Key key, this.shopList}) : super(key: key);
+  const ShopGridItem({Key key, this.shopList}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-  
     return InkWell(
       onTap: () {
         print('shop is tapped');
@@ -25,33 +24,35 @@ class ShopGridList extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topLeft: borderRadius, topRight: borderRadius),
+                      topLeft: borderRadius, topRight: borderRadius,),
                   color: Color.fromRGBO(246, 246, 246, 1),
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                      topLeft: borderRadius, topRight: borderRadius),
-                  child: Image.asset(shopList.image,
-                      height: 100, fit: BoxFit.fitWidth),
+                      topLeft: borderRadius, topRight: borderRadius,),
+                  child: Image.asset(
+                    shopList.image,
+                    height: 100,
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(left: 8, top: 10),
+                margin: EdgeInsets.only(
+                  left: 8,
+                  top: 10,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       shopList.name,
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                     Text(
                       shopList.address,
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
-                          fontWeight: FontWeight.w500),
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ],
                 ),

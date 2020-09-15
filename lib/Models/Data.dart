@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 
 class Shop with ChangeNotifier {
@@ -14,35 +15,33 @@ class Shop with ChangeNotifier {
   });
 }
 
-class Shops with ChangeNotifier {
-  List<Shop> _nearShop = [
+
+ final  List<Shop> nearShop = [
     Shop(
         id: "1",
-        name: 'Nivea Care Shop',
+        name: 'Nivea Care Shop',//Obchod Nivea Care
         image: 'assets/images/shop6.png',
-        address: 'Near Hanuman Mandir Tarbahar'),
+        address:"Near Hanuman Mandir Tarbahar"),//V blízkosti chrámu Hanuman Tarabahar
     Shop(
         id: "2",
-        name: 'Saluja Kirana Store',
+        name: "Saluja Kirana Store",//Obchod Saluja Kirana
         image: 'assets/images/shop1.jpeg',
-        address: 'Near Bajar Chock , Tifra'),
-    Shop(
-        id: '3',
-        name: 'Chintu Kirana Store',
-        image: 'assets/images/shop2.jpeg',
-        address: 'Near Bajar Chock , YadunanDan Nagar'),
-    Shop(
-        id: '4',
-        name: 'Chintu Kirana ',
-        image: 'assets/images/shop4.jpeg',
-        address: 'Near Bajar Chock , YadunanDan '),
+        address: "Near Bajar Chock , Tifra"),//V blízkosti Bajar Chock, Tifra
+    // Shop(
+    //     id: '3',
+    //     name: 'Chintu Kirana Store',
+    //     image: 'assets/images/shop2.jpeg',
+    //     address: 'Near Bajar Chock , YadunanDan Nagar'),
+    // Shop(
+    //     id: '4',
+    //     name: 'Chintu Kirana ',
+    //     image: 'assets/images/shop4.jpeg',
+    //     address: 'Near Bajar Chock , YadunanDan '),
   ];
 
-  List<Shop> get items {
-    return [..._nearShop];
-  }
+  
 
-  Shop findById(String id) {
-    return _nearShop.firstWhere((element) => element.id == id);
-  }
-}
+  // Shop findById(String id) {
+  //   return nearShop.firstWhere((element) => element.id == id);
+  // }
+

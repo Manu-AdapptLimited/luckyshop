@@ -1,4 +1,4 @@
-import 'package:e_comshop/Models/Categry.dart';
+import 'package:e_comshop/Models/Category.dart';
 import 'package:e_comshop/Screens/Product/CategoryList.dart';
 import 'package:flutter/material.dart';
 
@@ -38,29 +38,32 @@ class ProductGridBuilder extends StatelessWidget {
                     crossAxisCount: 2),
                 itemBuilder: (BuildContext context, int index) {
                   if (index == itemCount.length) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      elevation: 5,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: RichText(
-                            text: TextSpan(children: [
-                          TextSpan(
-                            text: 'See All ',
-                            style: TextStyle(
-                              color: Color.fromRGBO(233, 97, 39, 1),
-                               fontSize: 15,
+                    return InkWell(
+                      onTap: () {},
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 5,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: RichText(
+                              text: TextSpan(children: [
+                            TextSpan(
+                              text: 'See All ',
+                              style: TextStyle(
+                                color: Color.fromRGBO(233, 97, 39, 1),
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: '>',
-                            style: TextStyle(
-                              color: Color.fromRGBO(233, 97, 39, 1),
-                              fontSize: 17,
-                            ),
-                          )
-                        ])),
+                            TextSpan(
+                              text: '>',
+                              style: TextStyle(
+                                color: Color.fromRGBO(233, 97, 39, 1),
+                                fontSize: 17,
+                              ),
+                            )
+                          ])),
+                        ),
                       ),
                     );
                   }

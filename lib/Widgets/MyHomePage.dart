@@ -1,8 +1,12 @@
-import 'package:e_comshop/Models/Category.dart';
-import 'package:e_comshop/Models/Data.dart';
-import 'package:flutter/foundation.dart';
+import 'package:e_comshop/Models/Models.dart';
+import 'package:e_comshop/Widgets/MobileGridView.dart';
+import 'package:e_comshop/Widgets/TabGridView.dart';
+// import 'package:e_comshop/app_localizations.dart';
+// import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_translate/flutter_translate.dart';
+import 'package:get/get.dart';
+
 import 'Widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,17 +21,15 @@ class _MyHomePageState extends State<MyHomePage> {
     final bool useMobileLayout = shortestSide < 600;
     final Orientation orientation = MediaQuery.of(context).orientation;
 
-    final shop = Provider.of<Shops>(context);
-    final nearShop = shop.items;
-    // final nestedAccess = categories[0]["category"];
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+       
         body: CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
             ShopAppBar(
-              title: 'E_ComShop',
+              title:'title'.tr,
+              // title: translate('title'),
               searchIcon: Icon(Icons.search),
             ),
             // SliverList(
@@ -41,42 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             // ),
             useMobileLayout
-                ? mobileGridView(orientation: orientation,nearShop:nearShop)
-                : tabGridView(orientation: orientation,nearShop:nearShop),
+                ? MobileGridView(orientation: orientation, nearShop: nearShop)
+                : TabGridView(orientation: orientation, nearShop: nearShop),
           ],
         ),
         drawer: Drawer(),
       ),
     );
   }
-}
-
-Widget mobileGridView({@required Orientation orientation, nearShop}) {
-  return SliverGrid(
-    delegate: SliverChildBuilderDelegate(
-      (context, index) {
-        return ShopGridList(shopList: nearShop[index]);
-      },
-      childCount: nearShop.length,
-    ),
-    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: orientation == Orientation.portrait ? 1 : 2,
-      childAspectRatio: orientation == Orientation.portrait ? 1.8 : 1.6,
-    ),
-  );
-}
-
-Widget tabGridView({@required Orientation orientation, nearShop}) {
-  return SliverGrid(
-    delegate: SliverChildBuilderDelegate(
-      (context, index) {
-        return ShopGridList(shopList: nearShop[index]);
-      },
-      childCount: nearShop.length,
-    ),
-    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
-      childAspectRatio: orientation == Orientation.portrait ? 1.8 : 1.6,
-    ),
-  );
 }
